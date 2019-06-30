@@ -35,7 +35,24 @@
 
 /*
 /usr/include/c++/6/debug/vector:415:
-Error: attempt to subscript container with out-of-bounds index 0, but 
+Error: attempt to subscript container with out-of-bounds index 5, but
+container only holds 4 elements.
+
+Objects involved in the operation:
+    sequence "this" @ 0x0x7fff39176c20 {
+      type = std::__debug::vector<int, std::allocator<int> >;
+    }
+*/
+
+void out_of_bounds()
+{
+	std::vector<int> v{1, 2, 3, 4};
+	std::cout << v[5];
+}
+
+/*
+/usr/include/c++/6/debug/vector:415:
+Error: attempt to subscript container with out-of-bounds index 0, but
 container only holds 0 elements.
 
 Objects involved in the operation:
@@ -43,12 +60,6 @@ Objects involved in the operation:
       type = std::__debug::vector<int, std::allocator<int> >;
     }
 */
-void out_of_bounds()
-{
-	std::vector<int> v{1, 2, 3, 4};
-	std::cout << v[5];
-}
-
 void out_of_bounds_addr()
 {
 	std::vector<int> v{};
@@ -57,7 +68,7 @@ void out_of_bounds_addr()
 
 /*
 /usr/include/c++/6/debug/safe_iterator.h:375:
-Error: attempt to advance a dereferenceable iterator 4 steps, which falls 
+Error: attempt to advance a dereferenceable iterator 4 steps, which falls
 outside its valid range.
 
 Objects involved in the operation:
@@ -97,7 +108,7 @@ void comparison_not_irreflexive()
 
 /*
 /usr/include/c++/6/bits/stl_algo.h:5309:
-Error: elements in iterator range [__first1, __last1) are not sorted 
+Error: elements in iterator range [__first1, __last1) are not sorted
 according to the predicate __comp.
 
 Objects involved in the operation:
